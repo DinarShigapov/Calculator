@@ -1,0 +1,94 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="450">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="textboxStyle">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="10 0"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid Background="Gray">
+        <StackPanel Margin="20 10"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Вычисление BMR и TDEE"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       Foreground="White"/>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0 10">
+                <TextBlock Text="Пол"
+                           Margin="0 0 10 0"/>
+                <ComboBox Width="200" SelectedIndex="0">
+                    <ComboBoxItem Content="Мужской"/>
+                    <ComboBoxItem Content="Женский"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0 10">
+                <TextBlock Text="Возраст/лет"
+                           Margin="0 0 10 0"/>
+                <TextBox x:Name="TBAge"
+                    Style="{StaticResource textboxStyle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0 10">
+                <TextBlock Text="Вес/кг"
+                           Margin="0 0 10 0"/>
+                <TextBox x:Name="TBKg" Style="{StaticResource textboxStyle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0 10">
+                <TextBlock Text="Рост/См"
+                           Margin="0 0 10 0"/>
+                <TextBox x:Name="TBHeight" Style="{StaticResource textboxStyle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0 10">
+                <TextBlock Text="Активность"
+                           Margin="0 0 10 0"/>
+                <ComboBox Width="200" SelectedIndex="0">
+                    <ComboBoxItem Content="Немного активный"/>
+                    <ComboBoxItem Content="Средняя активность"/>
+                    <ComboBoxItem Content="Большая активность"/>
+                    <ComboBoxItem Content="Экстра нагрузка"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button Content="Очистить"
+                        x:Name="BClear"
+                        Click="BClear_Click"/>
+                <Button Content="Вычислить"
+                        x:Name="BCalculate"
+                        Click="BCalculate_Click"/>
+            </StackPanel>
+            <TextBlock x:Name="TBAnswer"/>
+        </StackPanel>
+    </Grid>
+</Window>
